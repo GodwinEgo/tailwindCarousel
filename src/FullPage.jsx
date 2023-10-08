@@ -23,21 +23,18 @@ const slides = [
 
 function FullPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slideDirection, setSlideDirection] = useState("right");
 
   const handlePrevSlide = () => {
-    setSlideDirection("left");
     setCurrentSlide(currentSlide === 0 ? slides.length - 1 : currentSlide - 1);
   };
 
   const handleNextSlide = () => {
-    setSlideDirection("right");
     setCurrentSlide(currentSlide === slides.length - 1 ? 0 : currentSlide + 1);
   };
 
   return (
     <div style={{ width: "100%" }}>
-      <div className={`carousel ${slideDirection}`}>
+      <div className="carousel">
         <h1>{slides[currentSlide].title}</h1>
         <p>{slides[currentSlide].content}</p>
       </div>
